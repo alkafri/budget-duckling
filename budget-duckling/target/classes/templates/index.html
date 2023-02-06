@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Duckling</title>
+</head>
+<body>
+
+<center>
+  <br><br><br>
+  <img src="duck.png" width="350px">
+  <br><br><br>
+  <label style="font-size: 22px">Welcome to BUDGET DUCKLING<br> from here you can manage all your invoices</label><br><br>
+  <br><br><br>
+<form action="/index" id="authForm" method="get">
+  <div>
+    <label style="font-size: 18px">Please enter your username and password to login</label><br><br>
+    <label>User name:</label>
+    <input name="username" id="username"><br><br>
+    <label>Password:</label>
+    <input name="pass" id="pass"><br><br>
+    <button>Lets go!</button>
+    <br><br>
+     <p th:text="${wrongMsg}" style="color: red;font-size: 18px"></p>
+  </div>
+</form>
+</center>
+</body>
+</html>

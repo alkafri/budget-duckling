@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Duckling - Update Payment</title>
+</head>
+<body>
+<center>
+  <br><br>
+  <form action="/invoicesupdateg" id="updateInvoiceForm" method="get">
+
+    <label style="color: dimgray;font-size: 18px">You can upate the values and click save:</label><br><br>
+
+    <table>
+      <tr>
+        <td style="width: 150px;"></td>
+        <td><input type="hidden" name="paymentid" id="paymentid" style="width: 350px" th:value="${pId}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label>Payment Title:</label></td>
+        <td><input name="paymenttitle" id="paymenttitle" style="width: 350px" th:value="${pTitle}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label>Payment Date:</label></td>
+        <td><input type="date" name="paymentdate" id="paymentdate" style="width: 350px" th:value="${pDate}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label>Payment Description:</label></td>
+        <td><input name="paymentdescription" id="paymentdescription" style="width: 350px" th:value="${pDescription}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label>Payment Category:</label></td>
+        <td><input name="paymentcategory" id="paymentcategory" style="width: 350px" th:value="${pCategory}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label>Payment Amount:</label></td>
+        <td><input type="number" name="paymentamount" id="paymentamount" style="width: 350px" th:value="${pPrice}"></td>
+      </tr>
+      <tr>
+        <td style="width: 150px;"><label></label></td>
+        <td><input type="hidden" name="paymentuser" id="paymentuser" style="width: 350px" th:value="${parusername}"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <button>Save</button>
+          <p><a href="javascript:history.go(-1)" style="color:dimgray">Back</a></p>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</center>
+
+</body>
+</html>

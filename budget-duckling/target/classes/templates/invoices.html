@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Budget Duckling - Invoices</title>
+</head>
+<body>
+
+<center>
+    <img src="invoicelist.jpg" width="50px"><br>
+    <p style="color: dimgray;font-size: 24px">Here is a list of your invoices</p>
+    <p th:text="${msg}" style="color: red;font-size: 18px"></p>
+    <p style="text-align: center"><a th:href="@{'/invoicesadd?username=' + ${parusername}}" style="color: green">CLICK HERE TO ADD NEW INVOICE</a></p>
+
+
+
+</center>
+
+
+
+
+<center>
+<table style="width: 70%;border: 3px solid #000000; border-collapse: collapse">
+    <tr style="background-color: dimgray;height: 45px;color: aliceblue;">
+        <th>Payment ID</th>
+        <th>Payment Title</th>
+        <th>Payment Date</th>
+        <th>Payment Description</th>
+        <th>Payment Category</th>
+        <th>Payment Amount</th>
+        <th colspan="2">Operations</th>
+    </tr>
+
+    <!--<tr th:each="payment: ${allPayments}" th:style="'background-color:' + ${styColor} + ';border-style: solid;border-width: medium;border-color: black;height: 35px;text-align: center;'">-->
+    <tr th:each="payment: ${allPayments}" style="border-style: solid;border-width: medium;border-color: black;height: 35px;text-align: center;'">
+        <td th:text="${payment.payment_id}"></td>
+        <td th:text="${payment.payment_title}"></td>
+        <td th:text="${payment.payment_date}"></td>
+        <td th:text="${payment.payment_description}"></td>
+        <td th:text="${payment.payment_category}"></td>
+        <td th:text="${payment.payment_price}"></td>
+
+        <script type="text/javascript">
+            function confirm_alert(node) {
+                return confirm("You are about to delete this record, Proceed?");
+            }
+        </script>
+
+        <td><a th:href="${'invoicesupdate?id=' + {payment.payment_id} + '&username=' + {payment.payment_user_name}}" style="color: dimgray">Edit</a></td>
+        <td><a th:href="${'invoices/delete?id=' + {payment.payment_id} + '&username=' + {payment.payment_user_name}}" onclick="return confirm_alert(this);" style="color: dimgray">Delete</a></td>
+
+    </tr>
+</table>
+</center>
+
+</body>
+</html>
